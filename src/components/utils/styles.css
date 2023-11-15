@@ -1,0 +1,16 @@
+/* styles.css (o el nombre que hayas elegido) */
+
+.my-datepicker-style {
+    background-color: #fdfdfd; /* Fondo */
+    color: #000000; /* Texto */
+    border: 1px solid #575353; /* Borde */
+    /* Otros estilos necesarios */
+    background-image: url('../../assets/calendar.png');
+    background-size: 20px 20px; /* Ajusta el tamaño del icono */
+    background-repeat: no-repeat; /* Evita la repetición del fondo */
+    background-position: right center; /* Alinea el icono a la derecha y al centro del componente */
+    padding-right: 30px; /* Ajusta el espacio para el icono */
+    width: 140px; /* Ajusta el ancho del cuadro de fecha */
+    height: 30px; /* Ajusta la altura del cuadro de fecha */
+  }
+  
