@@ -67,6 +67,7 @@ export default function App() {
         const userRole = sessionStorage.getItem('rol');
 
         if (!loggedIn || userRole !== role) {
+            changeLoggedIn(false);
             return <Navigate to="/login" state={{ from: location }} />;
         }
 

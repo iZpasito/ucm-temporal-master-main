@@ -22,7 +22,7 @@ function ListadoUser() {
 
   return (
     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8 relative overflow-x-auto h-screen bg-[url(/src/assets/campus1.png)]">
-      <table className="min-w-full text-sm text-left ">
+      <table className="min-w-full text-sm text-center ">
         <tbody>
           <tr>
             <th scope="col" className="px-6 py-3">
@@ -34,11 +34,14 @@ function ListadoUser() {
             <th scope="col" className="px-6 py-3">
               Horario
             </th>
+            <th scope="col" className="px-6 py-3">
+              Accion
+            </th>
 
           </tr>
           {list?.length > 0 &&
             list?.map(item => (
-              <tr key={item.id} className="bg-white dark:bg-gray-800">
+              <tr key={item.id} className="dark:bg-cyan-200 dark:bg-opacity-30 ">
                 <td className="px-6 py-4 dark:text-white border-b font-medium dark:border-neutral-500">{item.fecha}</td>
                 <td className="px-6 py-4 dark:text-white border-b font-medium dark:border-neutral-500">{item.espacio_deportivo}</td>
                 <td className="px-6 py-4 dark:text-white border-b font-medium dark:border-neutral-500">{item.horario}</td>

@@ -15,7 +15,7 @@ export default function Tabla() {
   const [Horas, setHoras] = useState([])
   //const [HoraFin, setHoraFin] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
-  const [options, setOptions] = useState([]);
+  const [options, setOptions] = useState('');
   const [CampoTexto, setCampoTexto] = useState('');
   const [Cancha, setCancha] = useState('');
   const [rescuedCorreo, setRescuedCorreo] = useState("");
@@ -77,7 +77,7 @@ function reserva(e) {
   const cod_usuario = getID();
   const fechaFormateada = format(selectedDate, 'yyyy-MM-dd');
 
-  console.log('Hora de inicio seleccionada:', HoraInicio); 
+  console.log('Hora de inicio seleccionada:', JSON.stringify(HoraInicio)); 
   let datos1 ={
     fecha_reserva: fechaFormateada,
     solicita_equipo: options,
@@ -93,7 +93,7 @@ function reserva(e) {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + sessionStorage.getItem('access'),
     },
-    body: JSON.stringify({datos1}),
+    body: JSON.stringify(datos1),
   })
 }
 
@@ -161,9 +161,11 @@ function reserva(e) {
             <div className="flex">
               <input
                 type="radio"
-                value="si" 
+                value="true" 
                 name="equipo"
-                onChange={() => setOptions(true)}
+                onChange={(e) => {
+                  setOptions(e.target.value);
+                }}
               />
               <label className="ml-2">Si</label>
               <input
@@ -171,7 +173,9 @@ function reserva(e) {
                 type="radio"
                 value="false"
                 name="equipo"
-                onChange={() => setOptions(false)} 
+                onChange={(e) => {
+                  setOptions(e.target.value);
+                }}
               />
               <label className="ml-2">No</label>
             </div>
@@ -219,6 +223,12 @@ function reserva(e) {
             <button
               className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-2 md:mt-0 ml-0 md:ml-2 focus-shadow-outline"
               type="button"
+              onClick={() => {
+                setEleccion(""); // Reset Eleccion state variable
+                setHoraInicio(""); // Reset HoraInicio state variable
+                setCampoTexto(""); // Reset CampoTexto state variable
+                setSelectedDate(""); // Reset Date state variable
+              }}
             >
               Limpiar
             </button>

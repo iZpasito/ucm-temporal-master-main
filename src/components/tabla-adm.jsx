@@ -98,7 +98,7 @@ function reserva(e) {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + sessionStorage.getItem('access'),
     },
-    body: JSON.stringify({datos1}),
+    body: JSON.stringify(datos1),
   })
 }
 
